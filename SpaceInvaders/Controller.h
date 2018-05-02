@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "Window.h"
 #include <memory>
 #undef main
 
@@ -19,5 +20,6 @@ protected:
 	int keyCount;
 	const Uint8 *state;
 	bool running;
+	Window window;
 };
 

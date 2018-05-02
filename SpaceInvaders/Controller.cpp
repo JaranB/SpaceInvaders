@@ -15,7 +15,6 @@ Controller::~Controller()
 { }
 
 void Controller::StartGame() {
-	Window window;
 	window.loadWindow();
 	running = true;
 	GameLoop();
@@ -26,6 +25,7 @@ void Controller::GameLoop() {
 	while (running) {
 		Update();
 		KeyDown();
+		window.drawShip();
 	}
 }
 
