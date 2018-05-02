@@ -4,40 +4,66 @@
 #include "InputManager.h"
 #include <iostream>
 
-
-
 Controller::Controller()
-{ }
+{
+	Controller::oldKeys = std::unique_ptr<Uint8>(new Uint8[keyCount]);
+	state = SDL_GetKeyboardState(NULL);
+}
 
 
 Controller::~Controller()
 { }
 
-void Controller::run() {
+void Controller::StartGame() {
 	Window window;
 	window.loadWindow();
+	running = true;
+	GameLoop();
+}
 
-	InputManager inp;
+void Controller::GameLoop() {
 
-	while (true) {
-
-		inp.Update();
-		int keyDown = inp.KeyDown();
-
-		if (keyDown == 1) {
-			std::cout << "Opp" << std::endl;
-		}
-
-		if (keyDown == 2) {
-			std::cout << "Ned" << std::endl;
-		}
-
-		if (keyDown == 3) {
-			std::cout << "Venstre" << std::endl;
-		}
-
-		if (keyDown == 4) {
-			std::cout << "Høyre" << std::endl;
-		}
+	while (running) {
+		Update();
+		KeyDown();
 	}
+}
+
+void Controller::Update() {
+	memcpy(oldKeys.get(), keys, keyCount * sizeof(Uint8));
+	SDL_PumpEvents();
+}
+
+void Controller::KeyDown() {
+
+	const Uint8 *state = SDL_GetKeyboardState(NULL);
+
+	if (state[SDL_SCANCODE_UP]) {
+		std::cout << "Opp" << std::endl;
+	}
+
+	if (state[SDL_SCANCODE_DOWN]) {
+		std::cout << "Ned" << std::endl;
+	}
+
+	if (state[SDL_SCANCODE_LEFT]) {
+		std::cout << "Venstre" << std::endl;
+	}
+
+	if (state[SDL_SCANCODE_RIGHT]) {
+		std::cout << "Høyre" << std::endl;
+	}
+
+	if (state[SDL_SCANCODE_SPACE]) {
+		std::cout << "Space" << std::endl;
+	}
+
+	if (state[SDL_SCANCODE_P]) {
+		std::cout << "Pause" << std::endl;
+	}
+
+	if (state[SDL_SCANCODE_ESCAPE]) {
+		exit(0);
+	}
+
 }
