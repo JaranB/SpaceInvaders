@@ -3,6 +3,8 @@
 #include "Window.h"
 #include "Player.h"
 #include <memory>
+#include "vector"
+#include "NPC.h"
 #undef main
 
 class Controller
@@ -13,6 +15,9 @@ public:
 	void KeyDown();
 	void StartGame();
 	void Update();
+	void AddNPC();
+	void loadNPCS();
+	void drawNPCS();
 	~Controller();
 
 protected:
@@ -23,4 +28,5 @@ protected:
 	bool running;
 	Window window;
 	Player player;
+	std::vector<NPC> npcs;
 };

@@ -8,6 +8,8 @@ public:
 	Window();
 	void loadWindow();
 	void draw(SDL_Texture* texture, SDL_Rect coords);
+	void drawNPC(SDL_Texture* texture, SDL_Rect coords);
+	void renderClear();
 	~Window();
 
 	SDL_Window* gameWindow;

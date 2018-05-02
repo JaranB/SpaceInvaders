@@ -17,6 +17,10 @@ Controller::~Controller()
 void Controller::StartGame() {
 	window.loadWindow();
 	player.loadShip(window.gameWindow, window.renderer);
+
+	AddNPC();
+	loadNPCS();
+
 	running = true;
 	GameLoop();
 }
@@ -27,6 +31,8 @@ void Controller::GameLoop() {
 		Update();
 		KeyDown();
 		window.draw(player.spaceShipDrawable, player.spaceShipCoords);
+		drawNPCS();
+		window.renderClear();
 	}
 }
 
@@ -89,4 +95,24 @@ void Controller::KeyDown() {
 		exit(0);
 	}
 
+}
+
+void Controller::AddNPC() {
+	NPC npc(400, 700);
+	npcs.push_back(npc);
+}
+
+void Controller::loadNPCS() {
+
+	std::vector<NPC>::iterator it;
+	for (it = npcs.begin(); it != npcs.end(); it++) {
+		it->loadNPC(window.gameWindow, window.renderer);
+	}
+}
+
+void Controller::drawNPCS() {
+	std::vector<NPC>::iterator it;
+	for (it = npcs.begin(); it != npcs.end(); it++) {
+		window.drawNPC(it->NPCDrawable, it->NPCCoords);
+	}
 }
