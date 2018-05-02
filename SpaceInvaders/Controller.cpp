@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "InputManager.h"
 #include <iostream>
+#include <vector>
 
 Controller::Controller()
 {
@@ -17,6 +18,10 @@ Controller::~Controller()
 void Controller::StartGame() {
 	window.loadWindow();
 	player.loadShip(window.gameWindow, window.renderer);
+
+	std::vector<LaserBeam>::const_iterator iter;
+	std::vector<LaserBeam> laserBeamArray;
+
 	running = true;
 	GameLoop();
 }
@@ -75,6 +80,7 @@ void Controller::KeyDown() {
 
 	if (state[SDL_SCANCODE_SPACE]) {
 		std::cout << "Space" << std::endl;
+		
 	}
 
 	if (state[SDL_SCANCODE_P]) {

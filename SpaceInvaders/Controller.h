@@ -3,6 +3,8 @@
 #include "Window.h"
 #include "Player.h"
 #include <memory>
+#include "LaserBeam.h"
+
 #undef main
 
 class Controller
@@ -23,4 +25,5 @@ protected:
 	bool running;
 	Window window;
 	Player player;
+	LaserBeam laserBeam;
 };

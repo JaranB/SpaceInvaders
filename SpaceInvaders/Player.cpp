@@ -11,7 +11,7 @@ Player::Player()
 
 Player::~Player()
 {
-
+	
 }
 
 void Player::loadShip(SDL_Window* vindu, SDL_Renderer* render) {
