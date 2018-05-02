@@ -7,14 +7,15 @@ class Window
 public:
 	Window();
 	void loadWindow();
-	void loadShip();
-	void drawShip();
+	void draw(SDL_Texture* texture, SDL_Rect coords);
 	~Window();
 
-private:
-	SDL_Window *window;
-	SDL_Renderer *renderer;
-	SDL_Surface* spaceShip;
+	SDL_Window* window2;
+	SDL_Renderer* renderer;
 	SDL_Texture* spaceShipDrawable;
-	SDL_Rect spaceShipSpawn;
+	SDL_Rect spaceShipCoords;
+	SDL_Surface* spaceShip;
+
+private:
+
 };

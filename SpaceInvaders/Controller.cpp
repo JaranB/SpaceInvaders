@@ -16,6 +16,7 @@ Controller::~Controller()
 
 void Controller::StartGame() {
 	window.loadWindow();
+	player.loadShip(window.window2, window.renderer);
 	running = true;
 	GameLoop();
 }
@@ -25,7 +26,7 @@ void Controller::GameLoop() {
 	while (running) {
 		Update();
 		KeyDown();
-		window.drawShip();
+		window.draw(player.spaceShipDrawable, player.spaceShipCoords);
 	}
 }
 
@@ -40,18 +41,36 @@ void Controller::KeyDown() {
 
 	if (state[SDL_SCANCODE_UP]) {
 		std::cout << "Opp" << std::endl;
+		//window.spaceShipSpawn.y = window.spaceShipSpawn.y - 1;
 	}
 
 	if (state[SDL_SCANCODE_DOWN]) {
 		std::cout << "Ned" << std::endl;
+		//window.spaceShipSpawn.y = window.spaceShipSpawn.y + 1;
 	}
 
 	if (state[SDL_SCANCODE_LEFT]) {
 		std::cout << "Venstre" << std::endl;
+
+		if (player.spaceShipCoords.x < 0) {
+
+		}
+		else {
+			player.spaceShipCoords.x = player.spaceShipCoords.x - 1;
+			SDL_Delay(1);
+		}
 	}
 
 	if (state[SDL_SCANCODE_RIGHT]) {
 		std::cout << "Høyre" << std::endl;
+
+		if (player.spaceShipCoords.x > 950) {
+
+		}
+		else {
+			player.spaceShipCoords.x = player.spaceShipCoords.x + 1;
+			SDL_Delay(1);
+		}
 	}
 
 	if (state[SDL_SCANCODE_SPACE]) {
@@ -63,7 +82,7 @@ void Controller::KeyDown() {
 	}
 
 	if (state[SDL_SCANCODE_M]) {
-		std::cout << "Mute" << std::endl; 
+		std::cout << "Mute" << std::endl;
 	}
 
 	if (state[SDL_SCANCODE_ESCAPE]) {

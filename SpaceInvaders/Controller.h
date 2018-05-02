@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "Window.h"
+#include "Player.h"
 #include <memory>
 #undef main
 
@@ -21,5 +22,5 @@ protected:
 	const Uint8 *state;
 	bool running;
 	Window window;
+	Player player;
 };
-
