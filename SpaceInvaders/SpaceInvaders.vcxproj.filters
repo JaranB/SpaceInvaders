@@ -30,7 +30,7 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LaserBeam.h">
+    <ClInclude Include="NPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,7 +50,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LaserBeam.cpp">
+    <ClCompile Include="NPC.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

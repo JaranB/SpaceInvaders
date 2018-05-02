@@ -3,9 +3,6 @@
 #include "InputManager.h"
 #include <iostream>
 
-SDL_Texture* defDrawable;
-SDL_Rect defPos;
-
 Window::Window()
 { }
 
@@ -39,7 +36,14 @@ void Window::loadWindow() {
 void Window::draw(SDL_Texture* texture, SDL_Rect coords) {
 
 	SDL_RenderCopy(renderer, texture, nullptr, &coords);
+}
 
+void Window::drawNPC(SDL_Texture* texture, SDL_Rect coords) {
+
+	SDL_RenderCopy(renderer, texture, nullptr, &coords);
+}
+
+void Window::renderClear() {
 	SDL_RenderPresent(renderer);
 	SDL_RenderClear(renderer);
 }
