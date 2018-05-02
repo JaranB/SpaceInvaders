@@ -15,14 +15,13 @@ Controller::~Controller()
 { }
 
 void Controller::StartGame() {
+
 	window.loadWindow();
 	player.loadShip(window.gameWindow, window.renderer);
-
-	AddNPC();
-	loadNPCS();
-
+	AddNPCS();
 	running = true;
 	GameLoop();
+
 }
 
 void Controller::GameLoop() {
@@ -37,8 +36,10 @@ void Controller::GameLoop() {
 }
 
 void Controller::Update() {
+
 	memcpy(oldKeys.get(), keys, keyCount * sizeof(Uint8));
 	SDL_PumpEvents();
+
 }
 
 void Controller::KeyDown() {
@@ -46,17 +47,14 @@ void Controller::KeyDown() {
 	const Uint8 *state = SDL_GetKeyboardState(NULL);
 
 	if (state[SDL_SCANCODE_UP]) {
-		std::cout << "Opp" << std::endl;
 		//window.spaceShipSpawn.y = window.spaceShipSpawn.y - 1;
 	}
 
 	if (state[SDL_SCANCODE_DOWN]) {
-		std::cout << "Ned" << std::endl;
 		//window.spaceShipSpawn.y = window.spaceShipSpawn.y + 1;
 	}
 
 	if (state[SDL_SCANCODE_LEFT]) {
-		std::cout << "Venstre" << std::endl;
 
 		if (player.spaceShipCoords.x < 0) {
 
@@ -68,7 +66,6 @@ void Controller::KeyDown() {
 	}
 
 	if (state[SDL_SCANCODE_RIGHT]) {
-		std::cout << "Høyre" << std::endl;
 
 		if (player.spaceShipCoords.x > 950) {
 
@@ -97,22 +94,59 @@ void Controller::KeyDown() {
 
 }
 
-void Controller::AddNPC() {
-	NPC npc(400, 700);
-	npcs.push_back(npc);
+void Controller::AddNPCS() {
+
+	for (int i = 0; i < 8; i++) {
+		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 1);
+		npcs.push_back(npc);
+		npcSpawnPositionX += 70;
+	}
+
+	npcSpawnPositionY += 60;
+	npcSpawnPositionX = 400;
+
+	for (int i = 0; i < 8; i++) {
+		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 2);
+		npcs.push_back(npc);
+		npcSpawnPositionX += 70;
+	}
+
+	npcSpawnPositionY += 50;
+	npcSpawnPositionX = 400;
+
+	for (int i = 0; i < 8; i++) {
+		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 3);
+		npcs.push_back(npc);
+		npcSpawnPositionX += 70;
+	}
+
+	npcSpawnPositionY += 50;
+	npcSpawnPositionX = 400;
+
+	for (int i = 0; i < 8; i++) {
+		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 4);
+		npcs.push_back(npc);
+		npcSpawnPositionX += 70;
+	}
+
+	loadNPCS();
 }
 
 void Controller::loadNPCS() {
 
 	std::vector<NPC>::iterator it;
+
 	for (it = npcs.begin(); it != npcs.end(); it++) {
 		it->loadNPC(window.gameWindow, window.renderer);
 	}
 }
 
 void Controller::drawNPCS() {
+
 	std::vector<NPC>::iterator it;
+
 	for (it = npcs.begin(); it != npcs.end(); it++) {
 		window.drawNPC(it->NPCDrawable, it->NPCCoords);
+		it->moveRight();
 	}
 }

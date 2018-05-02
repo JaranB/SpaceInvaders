@@ -15,7 +15,7 @@ public:
 	void KeyDown();
 	void StartGame();
 	void Update();
-	void AddNPC();
+	void AddNPCS();
 	void loadNPCS();
 	void drawNPCS();
 	~Controller();
@@ -24,6 +24,8 @@ protected:
 	Uint8 * keys;
 	std::unique_ptr<Uint8> oldKeys;
 	int keyCount;
+	int npcSpawnPositionY = 50;
+	int npcSpawnPositionX = 400;
 	const Uint8 *state;
 	bool running;
 	Window window;

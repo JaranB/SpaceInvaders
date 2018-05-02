@@ -3,9 +3,10 @@
 #include <iostream>
 
 
-NPC::NPC(int xCoord, int yCoord)
+NPC::NPC(int npcSpawnPositionX, int npcSpawnPositionY, int npcType)
 {
-	setCoords(xCoord, yCoord);
+	setCoords(npcSpawnPositionX, npcSpawnPositionY);
+	setNpcType(npcType);
 }
 
 
@@ -34,8 +35,30 @@ void NPC::setCoords(int xCoord, int yCoord) {
 	NPCCoords.y = yCoord;
 }
 
+void NPC::setNpcType(int npcType) {
+	m_npcType = npcType;
+}
+
+int NPC::getNpcType() {
+	return m_npcType;
+}
+
 void NPC::loadNPC(SDL_Window* vindu, SDL_Renderer* render) {
-	NPCSurface = SDL_LoadBMP("./resources/npc1.bmp");
+
+	if (m_npcType == 1) {
+		NPCSurface = SDL_LoadBMP("./resources/npc1.bmp");
+	}
+	else if (m_npcType == 2) {
+		NPCSurface = SDL_LoadBMP("./resources/npc2.bmp");
+	}
+	else if (m_npcType == 3) {
+		NPCSurface = SDL_LoadBMP("./resources/npc3.bmp");
+	}
+	else if (m_npcType == 4) {
+		NPCSurface = SDL_LoadBMP("./resources/npc4.bmp");
+	}
+
+	std::cout << getNpcType();
 
 	if (NPCSurface == nullptr)
 	{
@@ -50,4 +73,8 @@ void NPC::loadNPC(SDL_Window* vindu, SDL_Renderer* render) {
 	NPCCoords.w = NPCSurface->w;
 
 	SDL_FreeSurface(NPCSurface);
+}
+
+void NPC::moveRight() {
+	NPCCoords.x -= 1;
 }
