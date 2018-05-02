@@ -62,6 +62,10 @@ void Controller::KeyDown() {
 		std::cout << "Pause" << std::endl;
 	}
 
+	if (state[SDL_SCANCODE_M]) {
+		std::cout << "Mute" << std::endl; 
+	}
+
 	if (state[SDL_SCANCODE_ESCAPE]) {
 		exit(0);
 	}
