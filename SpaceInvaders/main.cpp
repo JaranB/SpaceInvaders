@@ -1,11 +1,14 @@
-#include "Window.h"
 #include "stdafx.h"
 #include "Window.h"
+#include "InputManager.h"
+#include <iostream>
+#include "Controller.h"
 
 
 int main()
 {
-	Window window;
-	window.loadWindow();
+
+	Controller controller;
+	controller.run();
 	return 0;
 }

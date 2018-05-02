@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Window.h"
+#include "InputManager.h"
 #include <iostream>
 
 
@@ -30,13 +31,8 @@ void Window::loadWindow() {
 		SDL_DestroyWindow(window); SDL_Quit();
 	}
 
-
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
-
-	while (true) {
-		SDL_RenderPresent(renderer);
-		SDL_RenderClear(renderer);
-	}
+	SDL_RenderPresent(renderer);
 
 }
