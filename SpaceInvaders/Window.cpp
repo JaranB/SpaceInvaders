@@ -15,10 +15,10 @@ Window::~Window()
 
 void Window::loadWindow() {
 	SDL_Init(SDL_INIT_VIDEO);
-	window2 = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1000, 1000, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
-	renderer = SDL_CreateRenderer(window2, -1, SDL_RENDERER_ACCELERATED);
+	gameWindow = SDL_CreateWindow("Space Invaders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1000, 1000, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+	renderer = SDL_CreateRenderer(gameWindow, -1, SDL_RENDERER_ACCELERATED);
 
-	if (window2 == nullptr)
+	if (gameWindow == nullptr)
 	{
 		std::cerr << "Failed to create window: "
 			<< SDL_GetError() << std::endl;
@@ -29,7 +29,7 @@ void Window::loadWindow() {
 	{
 		std::cerr << "Failed to create renderer: "
 			<< SDL_GetError() << std::endl;
-		SDL_DestroyWindow(window2); SDL_Quit();
+		SDL_DestroyWindow(gameWindow); SDL_Quit();
 	}
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);

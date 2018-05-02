@@ -15,7 +15,5 @@ public:
 	SDL_Surface* spaceShip;
 
 private:
-	Window window;
-
 };
 

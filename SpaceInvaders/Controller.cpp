@@ -16,7 +16,7 @@ Controller::~Controller()
 
 void Controller::StartGame() {
 	window.loadWindow();
-	player.loadShip(window.window2, window.renderer);
+	player.loadShip(window.gameWindow, window.renderer);
 	running = true;
 	GameLoop();
 }

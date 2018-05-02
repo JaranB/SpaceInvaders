@@ -10,7 +10,7 @@ public:
 	void draw(SDL_Texture* texture, SDL_Rect coords);
 	~Window();
 
-	SDL_Window* window2;
+	SDL_Window* gameWindow;
 	SDL_Renderer* renderer;
 	SDL_Texture* spaceShipDrawable;
 	SDL_Rect spaceShipCoords;
