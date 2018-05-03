@@ -9,7 +9,7 @@ public:
 	void PlaySFX();
 	void PauseMusic();
 	void ResumeMusic();
-	void ReleaseMusic();
+	void CleanUp();
 	~AudioManager();
 
 

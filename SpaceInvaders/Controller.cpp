@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "InputManager.h"
 #include <iostream>
+#include "AudioManager.h"
 
 Controller::Controller()
 {
@@ -17,7 +18,8 @@ Controller::~Controller()
 void Controller::StartGame() {
 	window.loadWindow();
 	entityManager = new EntityManager(&window);
-	player.loadEntity(window.gameWindow, window.renderer, 400, 850);
+	player.loadShip(window.gameWindow, window.renderer);
+	//bullet.loadBullet(window.gameWindow, window.renderer);
 	entityManager->AddNPCS();
 	running = true;
 	GameLoop();
@@ -29,8 +31,8 @@ void Controller::GameLoop() {
 	while (running) {
 		Update();
 		KeyDown();
-		window.draw(player.entityDrawable, player.entityCoords);
-		window.draw(bullet.entityDrawable, bullet.entityCoords);
+		window.draw(player.spaceShipDrawable, player.spaceShipCoords);
+		window.draw(bullet.bulletDrawable, bullet.bulletCoords);
 		entityManager->drawNPCS();
 
 		bullet.bulletMovement();
@@ -61,28 +63,28 @@ void Controller::KeyDown() {
 
 	if (state[SDL_SCANCODE_LEFT]) {
 
-		if (player.entityCoords.x < 0) {
+		if (player.spaceShipCoords.x < 0) {
 
 		}
 		else {
-			player.entityCoords.x = player.entityCoords.x - 1;
+			player.spaceShipCoords.x = player.spaceShipCoords.x - 1;
 		}
 	}
 
 	if (state[SDL_SCANCODE_RIGHT]) {
 
-		if (player.entityCoords.x > 950) {
+		if (player.spaceShipCoords.x > 950) {
 
 		}
 		else {
-			player.entityCoords.x = player.entityCoords.x + 1;
+			player.spaceShipCoords.x = player.spaceShipCoords.x + 1;
 		}
 	}
 
 	if (state[SDL_SCANCODE_SPACE] && !bullet.isAlive) {
 		bullet.isAlive = true;
 		std::cout << "Space" << std::endl;
-		bullet.loadEntity(window.gameWindow, window.renderer, (player.entityCoords.x + 20), (player.entityCoords.y - 10));
+		bullet.loadBullet(window.gameWindow, window.renderer, player.spaceShipCoords.x, player.spaceShipCoords.y);
 	}
 
 	if (state[SDL_SCANCODE_P]) {
@@ -90,6 +92,7 @@ void Controller::KeyDown() {
 	}
 
 	if (state[SDL_SCANCODE_M]) {
+		AudioManager(Void pause)
 		std::cout << "Mute" << std::endl;
 	}
 

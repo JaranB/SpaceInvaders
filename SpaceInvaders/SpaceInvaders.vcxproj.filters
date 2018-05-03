@@ -39,7 +39,7 @@
     <ClInclude Include="SpawnMobManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CEntity.h">
+    <ClInclude Include="AudioManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <ClCompile Include="SpawnMobManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CEntity.cpp">
+    <ClCompile Include="AudioManger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

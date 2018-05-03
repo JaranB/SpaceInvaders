@@ -104,10 +104,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Development\SDL2-2.0.8\include;C:\Development\SDL2_ttf-2.0.14\include;C:\Development\SDL2_mixer-2.0.2\include;C:\Development\SDL2_image-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Development\SDL2-2.0.8\lib\x64;C:\Development\SDL2_ttf-2.0.14\lib\x64;C:\Development\SDL2_mixer-2.0.2\lib\x64;C:\Development\SDL2_image-2.0.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,8 +151,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="CEntity.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="SpawnMobManager.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
@@ -158,8 +161,8 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManger.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="CEntity.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="SpawnMobManager.cpp" />
     <ClCompile Include="NPC.cpp" />

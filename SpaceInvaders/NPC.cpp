@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "NPC.h"
 #include <iostream>
+#include "SDL.h"
 
 
 NPC::NPC(int npcSpawnPositionX, int npcSpawnPositionY, int npcType)
