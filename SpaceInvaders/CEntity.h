@@ -7,10 +7,10 @@
 class CEntity
 {
 public:
-	CEntity(const char* bmpPath);
+	CEntity();
 	~CEntity();
 
-	void loadEntity(SDL_Window* vindu, SDL_Renderer* render);
+	void loadEntity(SDL_Window* vindu, SDL_Renderer* render, int x, int y);
 
 	bool isAlive = true;
 

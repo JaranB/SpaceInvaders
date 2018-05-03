@@ -9,12 +9,12 @@
 class Player : public CEntity
 {
 public:
-	Player(const char* bmpPath) : CEntity(bmpPath) {};
+	Player();
 	~Player();
 
 	int playerLives = 3;
 
-	std::string bmpPath = "./resources/ship.bmp";
+	const char* bmpPath = "./resources/ship.bmp";
 
 private:
 };

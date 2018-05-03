@@ -3,9 +3,8 @@
 #include <iostream>
 
 
-CEntity::CEntity(const char* bmpPath)
+CEntity::CEntity()
 {
-	m_bmpPath = bmpPath;
 }
 
 
@@ -13,7 +12,7 @@ CEntity::~CEntity()
 {
 }
 
-void CEntity::loadEntity(SDL_Window* vindu, SDL_Renderer* render) {
+void CEntity::loadEntity(SDL_Window* vindu, SDL_Renderer* render, int x, int y) {
 	entity = SDL_LoadBMP(m_bmpPath);
 
 	if (entity == nullptr)
@@ -25,10 +24,10 @@ void CEntity::loadEntity(SDL_Window* vindu, SDL_Renderer* render) {
 
 	entityDrawable = SDL_CreateTextureFromSurface(render, entity);
 
-	//entityCoords.h = entity->h;
-	//entityCoords.w = entity->w;
-	//entityCoords.x = 400;
-	//entityCoords.y = 850;
+	entityCoords.h = entity->h;
+	entityCoords.w = entity->w;
+	entityCoords.x = x;
+	entityCoords.y = y;
 
 	SDL_FreeSurface(entity);
 }

@@ -17,8 +17,7 @@ Controller::~Controller()
 void Controller::StartGame() {
 	window.loadWindow();
 	entityManager = new EntityManager(&window);
-	//player.loadShip(window.gameWindow, window.renderer);
-	player.loadEntity(window.gameWindow, window.renderer);
+	player.loadEntity(window.gameWindow, window.renderer, 400, 850);
 	entityManager->AddNPCS();
 	running = true;
 	GameLoop();
@@ -31,7 +30,7 @@ void Controller::GameLoop() {
 		Update();
 		KeyDown();
 		window.draw(player.entityDrawable, player.entityCoords);
-		window.draw(bullet.bulletDrawable, bullet.bulletCoords);
+		window.draw(bullet.entityDrawable, bullet.entityCoords);
 		entityManager->drawNPCS();
 
 		bullet.bulletMovement();
@@ -83,7 +82,7 @@ void Controller::KeyDown() {
 	if (state[SDL_SCANCODE_SPACE] && !bullet.isAlive) {
 		bullet.isAlive = true;
 		std::cout << "Space" << std::endl;
-		bullet.loadBullet(window.gameWindow, window.renderer, player.entityCoords.x, player.entityCoords.y);
+		bullet.loadEntity(window.gameWindow, window.renderer, (player.entityCoords.x + 20), (player.entityCoords.y - 10));
 	}
 
 	if (state[SDL_SCANCODE_P]) {
