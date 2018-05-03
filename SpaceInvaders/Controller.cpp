@@ -19,7 +19,7 @@ void Controller::StartGame() {
 	window.loadWindow();
 	player.loadShip(window.gameWindow, window.renderer);
 	//bullet.loadBullet(window.gameWindow, window.renderer);
-	//AddNPCS();
+	AddNPCS();
 	running = true;
 	GameLoop();
 
@@ -152,7 +152,7 @@ void Controller::drawNPCS() {
 	std::vector<NPC>::iterator it;
 
 	for (it = npcs.begin(); it != npcs.end(); it++) {
-		window.drawNPC(it->NPCDrawable, it->NPCCoords);
+		window.draw(it->NPCDrawable, it->NPCCoords);
 		it->moveRight();
 	}
 }
