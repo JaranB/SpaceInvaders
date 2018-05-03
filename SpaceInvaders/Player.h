@@ -1,17 +1,17 @@
 #pragma once
 #include "SDL.h"
+#include "CEntity.h"
+#include <string>
 
-class Player
+class Player : public CEntity
 {
 public:
-	Player();
+	Player(const char* bmpPath) : CEntity(bmpPath) {};
 	~Player();
-	void loadShip(SDL_Window* vindu, SDL_Renderer* render);
 
-	SDL_Texture* spaceShipDrawable;
-	SDL_Rect spaceShipCoords;
-	SDL_Surface* spaceShip;
+	int playerLives = 3;
+
+	std::string bmpPath = "./resources/ship.bmp";
 
 private:
 };
-
