@@ -23,7 +23,7 @@ void AudioManager::LoadMixer() {
 	Mix_OpenAudio(MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096);
 }
 
-void LoadAudio()
+void AudioManager::loadAudio()
 {
 	bool success = true;
 

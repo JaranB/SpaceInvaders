@@ -10,6 +10,7 @@ public:
 	void PauseMusic();
 	void ResumeMusic();
 	void CleanUp();
+	void loadAudio();
 	~AudioManager();
 
 
