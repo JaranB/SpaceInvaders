@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="CEntity.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="SpawnMobManager.h" />
     <ClInclude Include="NPC.h" />
@@ -158,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="CEntity.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="SpawnMobManager.cpp" />
     <ClCompile Include="NPC.cpp" />

@@ -1,3 +1,6 @@
+#ifndef WINDOW_H
+#define WINDOW_H
+
 #pragma once
 #include <SDL.h>
 #undef main
@@ -20,3 +23,5 @@ public:
 private:
 
 };
+
+#endif
