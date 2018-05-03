@@ -1,6 +1,8 @@
+#ifndef BULLET_H
+#define BULLET_H
+
 #pragma once
 #include "SDL.h"
-#include "Player.h"
 
 class Bullet
 {
@@ -18,3 +20,4 @@ public:
 	SDL_Surface* bullet;
 };
 
+#endif

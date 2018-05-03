@@ -4,7 +4,7 @@
 #include "InputManager.h"
 #include <iostream>
 
-Player::Player(const char* bmpPath) :CEntity(bmpPath)
+Player::Player(const char* bmpPath) : CEntity(bmpPath)
 {
 	entityCoords.h = entity->h;
 	entityCoords.w = entity->w;

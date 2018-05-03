@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #pragma once
 #include "SDL.h"
 #include "CEntity.h"
@@ -15,3 +18,5 @@ public:
 
 private:
 };
+
+#endif

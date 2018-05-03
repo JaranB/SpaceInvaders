@@ -1,3 +1,6 @@
+#ifndef CENTITY_H
+#define CENTITY_H
+
 #pragma once
 #include "SDL.h"
 
@@ -17,3 +20,5 @@ public:
 
 	const char* m_bmpPath;
 };
+
+#endif

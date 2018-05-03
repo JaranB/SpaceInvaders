@@ -1,3 +1,6 @@
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
+
 #pragma once
 #include "SDL.h"
 #include "Window.h"
@@ -31,3 +34,5 @@ protected:
 	Bullet bullet;
 	EntityManager *entityManager;
 };
+
+#endif
