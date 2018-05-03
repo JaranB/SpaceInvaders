@@ -3,7 +3,6 @@
 #include "Window.h"
 #include "InputManager.h"
 #include <iostream>
-#include <vector>
 
 Controller::Controller()
 {
@@ -20,7 +19,7 @@ void Controller::StartGame() {
 	entityManager = new EntityManager(&window);
 	player.loadShip(window.gameWindow, window.renderer);
 	//bullet.loadBullet(window.gameWindow, window.renderer);
-	AddNPCS();
+	entityManager->AddNPCS();
 	running = true;
 	GameLoop();
 
@@ -33,7 +32,7 @@ void Controller::GameLoop() {
 		KeyDown();
 		window.draw(player.spaceShipDrawable, player.spaceShipCoords);
 		window.draw(bullet.bulletDrawable, bullet.bulletCoords);
-		drawNPCS();
+		entityManager->drawNPCS();
 
 		bullet.bulletMovement();
 
@@ -99,61 +98,4 @@ void Controller::KeyDown() {
 		exit(0);
 	}
 
-}
-
-void Controller::AddNPCS() {
-
-	for (int i = 0; i < 8; i++) {
-		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 1);
-		npcs.push_back(npc);
-		npcSpawnPositionX += 70;
-	}
-
-	npcSpawnPositionY += 60;
-	npcSpawnPositionX = 400;
-
-	for (int i = 0; i < 8; i++) {
-		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 2);
-		npcs.push_back(npc);
-		npcSpawnPositionX += 70;
-	}
-
-	npcSpawnPositionY += 50;
-	npcSpawnPositionX = 400;
-
-	for (int i = 0; i < 8; i++) {
-		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 3);
-		npcs.push_back(npc);
-		npcSpawnPositionX += 70;
-	}
-
-	npcSpawnPositionY += 50;
-	npcSpawnPositionX = 400;
-
-	for (int i = 0; i < 8; i++) {
-		NPC npc(npcSpawnPositionX, npcSpawnPositionY, 4);
-		npcs.push_back(npc);
-		npcSpawnPositionX += 70;
-	}
-
-	loadNPCS();
-}
-
-void Controller::loadNPCS() {
-
-	std::vector<NPC>::iterator it;
-
-	for (it = npcs.begin(); it != npcs.end(); it++) {
-		it->loadNPC(window.gameWindow, window.renderer);
-	}
-}
-
-void Controller::drawNPCS() {
-
-	std::vector<NPC>::iterator it;
-
-	for (it = npcs.begin(); it != npcs.end(); it++) {
-		window.draw(it->NPCDrawable, it->NPCCoords);
-		it->moveRight();
-	}
 }

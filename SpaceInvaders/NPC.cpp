@@ -15,13 +15,6 @@ NPC::~NPC()
 
 }
 
-void NPC::setXCoord(int xCoord) {
-	NPCCoords.x = xCoord;
-}
-void NPC::setYCoord(int yCoord) {
-	NPCCoords.y = yCoord;
-}
-
 int NPC::getXCoord() {
 	return NPCCoords.x;
 }
