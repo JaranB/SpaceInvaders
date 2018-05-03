@@ -19,6 +19,7 @@ void Controller::StartGame() {
 	window.loadWindow();
 	player.loadShip(window.gameWindow, window.renderer);
 	//bullet.loadBullet(window.gameWindow, window.renderer);
+	//AddNPCS();
 	running = true;
 	GameLoop();
 
