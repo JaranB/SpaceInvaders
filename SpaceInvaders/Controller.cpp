@@ -3,6 +3,7 @@
 #include "Window.h"
 #include "InputManager.h"
 #include <iostream>
+#include <vector>
 
 Controller::Controller()
 {
@@ -15,9 +16,9 @@ Controller::~Controller()
 { }
 
 void Controller::StartGame() {
-
 	window.loadWindow();
 	player.loadShip(window.gameWindow, window.renderer);
+	//bullet.loadBullet(window.gameWindow, window.renderer);
 	running = true;
 	GameLoop();
 
@@ -29,8 +30,13 @@ void Controller::GameLoop() {
 		Update();
 		KeyDown();
 		window.draw(player.spaceShipDrawable, player.spaceShipCoords);
+		window.draw(bullet.bulletDrawable, bullet.bulletCoords);
 		drawNPCS();
+
+		bullet.bulletMovement();
+
 		window.renderClear();
+		SDL_Delay(1);
 	}
 }
 
@@ -60,7 +66,6 @@ void Controller::KeyDown() {
 		}
 		else {
 			player.spaceShipCoords.x = player.spaceShipCoords.x - 1;
-			SDL_Delay(1);
 		}
 	}
 
@@ -71,12 +76,13 @@ void Controller::KeyDown() {
 		}
 		else {
 			player.spaceShipCoords.x = player.spaceShipCoords.x + 1;
-			SDL_Delay(1);
 		}
 	}
 
-	if (state[SDL_SCANCODE_SPACE]) {
+	if (state[SDL_SCANCODE_SPACE] && !bullet.isAlive) {
+		bullet.isAlive = true;
 		std::cout << "Space" << std::endl;
+		bullet.loadBullet(window.gameWindow, window.renderer, player.spaceShipCoords.x, player.spaceShipCoords.y);
 	}
 
 	if (state[SDL_SCANCODE_P]) {

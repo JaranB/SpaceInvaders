@@ -5,6 +5,8 @@
 #include <memory>
 #include "vector"
 #include "NPC.h"
+#include "Bullet.h"
+
 #undef main
 
 class Controller
@@ -31,4 +33,5 @@ protected:
 	Window window;
 	Player player;
 	std::vector<NPC> npcs;
+	Bullet bullet;
 };
