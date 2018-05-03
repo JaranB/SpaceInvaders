@@ -149,7 +149,7 @@
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Controller.h" />
-    <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="SpawnMobManager.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="stdafx.h" />
@@ -159,7 +159,7 @@
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="SpawnMobManager.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpaceInvaders.cpp" />

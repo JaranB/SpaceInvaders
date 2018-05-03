@@ -6,7 +6,7 @@
 #include "vector"
 #include "NPC.h"
 #include "Bullet.h"
-#include "EntityManager.h"
+#include "SpawnMobManager.h"
 
 #undef main
 

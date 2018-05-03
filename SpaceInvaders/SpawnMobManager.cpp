@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "EntityManager.h"
+#include "SpawnMobManager.h"
 
 
 EntityManager::EntityManager(Window *gameWindow)
