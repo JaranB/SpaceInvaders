@@ -6,6 +6,7 @@
 #include "vector"
 #include "NPC.h"
 #include "Bullet.h"
+#include "EntityManager.h"
 
 #undef main
 
@@ -34,4 +35,5 @@ protected:
 	Player player;
 	std::vector<NPC> npcs;
 	Bullet bullet;
+	EntityManager *entityManager;
 };

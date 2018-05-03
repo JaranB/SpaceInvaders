@@ -17,6 +17,7 @@ Controller::~Controller()
 
 void Controller::StartGame() {
 	window.loadWindow();
+	entityManager = new EntityManager(&window);
 	player.loadShip(window.gameWindow, window.renderer);
 	//bullet.loadBullet(window.gameWindow, window.renderer);
 	AddNPCS();
